@@ -101,7 +101,7 @@ public class OrderController {
 			}
 		} catch (Exception e) {
 			JsonObject j = Json.createObjectBuilder().add("error", e.getMessage()).build();
-			return ResponseEntity.ok().body(j.toString());
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(j.toString());
 		}
 
 

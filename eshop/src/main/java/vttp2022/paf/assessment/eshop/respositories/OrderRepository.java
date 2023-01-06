@@ -9,9 +9,6 @@ import vttp2022.paf.assessment.orderException;
 import vttp2022.paf.assessment.queries;
 import vttp2022.paf.assessment.eshop.models.Order;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Repository
 public class OrderRepository {
 	// TODO: Task 3
@@ -20,7 +17,6 @@ public class OrderRepository {
 
 	@Transactional(rollbackFor = orderException.class)
 	public void saveOrder(Order order){
-		List<Order> orderArr = new ArrayList<>();
 		int check = 1000;
 		for (int i = 0; i < order.getLineItems().size(); i++) {
 			check = template.update(queries.SAVE_ORDER, 
